@@ -16,7 +16,7 @@ DATABASE_USER_NAME = os.environ.get("DATABASE_USER_NAME")
 DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
 DATABASE_SERVER = os.environ.get("DATABASE_SERVER")
 
-engine = create_engine ('mysql+mysqlconnector://{user}:{password}@{server}/{database}'.format(user = DATABASE_USER_NAME, password = DATABASE_PASSWORD, server = DATABASE_SERVER, database = DATABASE_NAME), future=True)
+engine = create_engine ('mysql+mysqlconnector://{user}:{password}@{server}/{database}'.format(user = DATABASE_USER_NAME, password = DATABASE_PASSWORD, server = DATABASE_SERVER, database = DATABASE_NAME), future=True, pool_recycle=299)
 
 metadata = MetaData(engine)
 #Creating a configured session class
